@@ -10,7 +10,11 @@ if [ -f $IMAGE ]; then
 	rm -fv $IMAGE
 fi
 
+wget https://github.com/koalaman/shellcheck/releases/download/v0.5.0/shellcheck-v0.5.0.linux.x86_64.tar.xz
+tar -xf shellcheck-v0.5.0.linux.x86_64.tar.xz
+rm -f shellcheck-v0.5.0.linux.x86_64.tar.xz
 sudo singularity build $IMAGE $DEFINITION
+rm -rf shellcheck-v0.5.0 
 
 if [ -f $IMAGE ]; then
 	exit 0
